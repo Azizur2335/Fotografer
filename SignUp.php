@@ -18,10 +18,9 @@
         }
         .logo-su {
             font-weight: bold;
-            font-size: 22px;
+            font-size: 28px;
             text-align: center;
             margin-top: 20px;
-            margin-bottom: 1px;
         }
         .box-container {
             flex: 1;
@@ -37,7 +36,7 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
-            min-height: 550px;
+            min-height: 540px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -83,8 +82,8 @@
     <div class="logo-su">Logo</div>
     <div class="box-container">
         <div class="box-su">
-            <h1 style="text-align: center; margin-bottom: 5px;">Sign Up</h1>
-            <p style="font-size: 14px; text-align: center; margin-bottom: 15px;">Lorem ipsum dolor sit amet adipiscing elit.</p>
+            <h1 style="text-align: center; margin-top: 20px; font-size: 35px;">Sign Up</h1>
+            <p style="font-size: 15px; text-align: center; margin-bottom: 5px;">Lorem ipsum dolor sit amet adipiscing elit.</p>
             <form action="">
                 <label>Name*</label>
                 <input type="text">
