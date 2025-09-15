@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>nyoba</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod consectetur veniam accusamus? Laborum officia qui sapiente mollitia voluptatum. Fugiat, molestias harum! Excepturi quod cupiditate, iure perferendis dicta asperiores. Aut, nostrum!</p>
+    
 </body>
 </html>
