@@ -1,0 +1,192 @@
+body{margin: 0; font-family:Arial, sans-serif;}
+.navbar{
+  display: flex; 
+  align-items: center;
+  justify-content: space-between; 
+  padding: 10px 50px;
+}
+.logo{
+  font-weight: bold;
+}
+.menu a{
+  margin: 0 10px; 
+  text-decoration: none; 
+  color: black;
+}
+.btn {
+  background: black; 
+  color: white; 
+  padding: 6px 12px;
+  text-decoration: none; 
+  border-radius: 4px;
+}
+.btn.second {
+  background: transparent;
+  color:white;
+}
+.btn.second:hover {
+  background: white;
+  color: black;
+  border: 0px solid black;
+}
+.dropdown {
+  display: inline-block;
+}
+.dropbtn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+}
+.dropdown-content a {
+  color: black;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover { background-color: #f1efef; }
+.dropdown:hover .dropdown-content { display: block; }
+
+.header {
+  background: url("../../images/header9.jpg") center center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+.header-title {
+  font-size: 40px;
+  margin: 10px;
+}
+.header-subtitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.header-text {
+  margin: 10px 0 30px;
+  font-size: 16px;
+}
+.header-buttons {
+  display: flex;           
+  justify-content: center;    
+  gap: 20px;                
+}
+.header-buttons .btn {
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+}
+
+.paket {
+  padding: 1px 50px;
+  background: #fff;
+  color: black;
+}
+.paket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+.paket-header p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+.btn-outline {
+  border: 1px solid black;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: black;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.paket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+}
+.paket-card {
+  background: #ffffff;
+  padding: 5px;
+}
+.paket-card h3 {
+  margin-bottom: 5px;
+}
+.paket-card h5 {
+  font-size: 12px;
+  color: black;
+  margin: 5px 5px 5px 0px;
+  font-weight: normal;
+}
+.paket-img {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 10px;
+}
+.harga {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.footer {
+  padding: 70px 10px;
+  background: #fff;
+  color: black;
+  font-size: 14px;
+}
+.footer-top {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between; 
+}
+.footer-logo {
+  font-weight: bold;
+}
+.footer-menu {
+  display: flex;
+  gap: 20px;
+}
+.footer-menu a {
+  text-decoration: none;
+  color: black;
+}
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+.footer-socials a img {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 13px;
+}
+.footer-bottom h4{
+  font-weight: normal;
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-links a {
+  color: black;
+  font-size: 13px;
+}
+
+
