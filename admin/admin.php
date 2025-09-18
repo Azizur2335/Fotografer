@@ -291,10 +291,29 @@
 
     <!-- PESAN MASUK -->
     <div id="pesanPage" class="hidden">
-      <h1>Pesan Masuk</h1>
-      <p>Daftar pesan pelanggan.</p>
+        <h1>Pesan Masuk</h1>
+        <table>
+            <tr>
+            <th>Pengirim</th>
+            <th>Preview</th>
+            <th>Tanggal</th>
+            </tr>
+            <tr class="unread">
+            <td>Lucas</td>
+            <td>Halo admin, saya mau tanya tentang paket...</td>
+            <td>17-09-2025</td>
+            </tr>
+            <tr>
+            <td>Mark</td>
+            <td>Halo, saya mau tanya tentang paket..</td>
+            <td>16-09-2025</td>
+            </tr>
+            <td>Jaemin</td>
+            <td>Halo, saya mau tanya tentang paket..</td>
+            <td>16-09-2025</td>
+            </tr>
+        </table>
     </div>
-  </div>
 
   <script>
     function toggleSidebar() {
