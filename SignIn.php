@@ -4,7 +4,7 @@
     <title>LogIn</title>
     <link rel="stylesheet" href="Assets/css/style.css">
 </head>
-<body>
+<body class="body-si">
     <div class="kiri-si">
         <div class="logo-si">Logo</div>
         <div class="login-box-si">
