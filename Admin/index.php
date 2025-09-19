@@ -144,6 +144,7 @@
       cursor: pointer;
       font-size: 14px;
       transition: 0.3s;
+      text-decoration: none;
     }
     .btn:hover {
       background: #444;
@@ -265,14 +266,14 @@
     <!-- PAKET FOTO -->
     <div id="paketPage" class="hidden">
       <h1>Kelola Paket Foto</h1>
-      <button class="btn">+ Tambah</button>
+      <a href="PaketFoto.php" class="btn">+ Tambah</a>
       <table>
         <thead>
           <tr>
             <th>Nama Paket</th>
             <th>Harga</th>
             <th>Durasi</th>
-            <th>Fasilitas</th>
+            <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>
         </thead>
