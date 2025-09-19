@@ -167,6 +167,44 @@
     .actions button {
       margin-right: 5px;
     }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 10px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item .actions {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .actions {
+      opacity: 1;
+    }
+    .btn-edit { background: #007bff; color: #fff; }
+    .btn-delete { background: #dc3545; color: #fff; }
   </style>
 </head>
 <body>
@@ -286,7 +324,30 @@
     <!-- GALERI -->
     <div id="galeriPage" class="hidden">
       <h1>Kelola Galeri Foto</h1>
-      <p>Konten galeri ada di sini.</p>
+      <button class="btn" onclick="alert('Form upload foto muncul di sini')">+ Tambah Foto</button>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="https://picsum.photos/id/1025/400/300" alt="Foto">
+          <div class="actions">
+            <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
+            <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/id/1031/400/300" alt="Foto">
+          <div class="actions">
+            <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
+            <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/id/1043/400/300" alt="Foto">
+          <div class="actions">
+            <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
+            <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- PESAN MASUK -->
@@ -314,7 +375,7 @@
             </tr>
         </table>
     </div>
-
+    
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
