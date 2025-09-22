@@ -31,3 +31,14 @@ function validasiForm(){
     console.log("YEYYY, VALIDASI BERHASIL, DATA TELAH TERSIMPAN HEHE XD");
     return true;
 }
+
+function validasiLogin(){
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (email.trim() === "" || password.trim() === "") {
+        alert("ISI SEMUANYA YA KOCAK!!!");
+        return false;
+    }
+    return true;
+}

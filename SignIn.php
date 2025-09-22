@@ -10,14 +10,14 @@
         <div class="login-box-si">
             <h1 style="text-align: center; margin-bottom: 10px;">Log In</h1>
             <p style="font-size: 14px; text-align: center; margin-bottom: 30px;">Lorem ipsum dolor sit amet adipiscing elit.</p>
-            <form action="">
+            <form action="backend/proses_login.php" method="POST" onsubmit="return validasiLogin()">
                 <label>Email*</label>
-                <input type="email">
+                <input id="email" type="email" name="email">
                 <div class="label-row-si">
                     <label>Password*</label>
                     <p class="forgor-si">Forgot your password?</p>
                 </div>
-                <input type="password">
+                <input id="password" type="password" name="password">
                 <button class="btn-si btn-login">Log in</button>
                 <button class="btn-si btn-google">Log in with Google</button>
                 <p style="font-size: 12px; text-align: center;">
