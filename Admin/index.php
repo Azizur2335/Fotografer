@@ -328,21 +328,21 @@
       <button class="btn" onclick="alert('Form upload foto muncul di sini')">+ Tambah Foto</button>
       <div class="gallery">
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/1025/400/300" alt="Foto">
+          <img src="" alt="Foto">
           <div class="actions">
             <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
             <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/1031/400/300" alt="Foto">
+          <img src="" alt="Foto">
           <div class="actions">
             <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
             <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/1043/400/300" alt="Foto">
+          <img src="" alt="Foto">
           <div class="actions">
             <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
             <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
