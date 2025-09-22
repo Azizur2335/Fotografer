@@ -30,5 +30,6 @@
     <div class="kanan-si">
         <img src="./Assets/cewegwpt2.jpg">
     </div>
+    <script src="backend/form.js"></script>
 </body>
 </html>

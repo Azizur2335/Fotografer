@@ -25,6 +25,6 @@
         </div>
     </div>
     <div class="footer-su">© 2025 NamaKelompok</div>
-    <script src="form.js"></script>
+    <script src="backend/form.js"></script>
 </body>
 </html>
