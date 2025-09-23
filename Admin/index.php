@@ -266,7 +266,7 @@
     <!-- PAKET FOTO -->
     <div id="paketPage" class="hidden">
       <h1>Kelola Paket Foto</h1>
-      <a href="PaketFoto.php" class="btn">+ Tambah</a>
+      <a href="formPaketA.php" class="btn">+ Tambah</a>
       <table>
         <thead>
           <tr>
@@ -325,7 +325,7 @@
     <!-- GALERI -->
     <div id="galeriPage" class="hidden">
       <h1>Kelola Galeri Foto</h1>
-      <button class="btn" onclick="alert('Form upload foto muncul di sini')">+ Tambah Foto</button>
+      <a href="formGaleriA" class="btn">+ Tambah Foto</a>
       <div class="gallery">
         <div class="gallery-item">
           <img src="" alt="Foto">

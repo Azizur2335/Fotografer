@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Panel Admin - Paket Foto & Galeri</title>
+  <title>Panel Admin - Galeri</title>
   <style>
     body { 
       font-family: Arial, sans-serif; 
@@ -20,7 +20,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     label { display: block; margin-top: 10px; font-weight: bold; }
-    input, textarea, button {
+    input, button {
       width: 100%; 
       padding: 8px; 
       margin-top: 6px; 
@@ -40,13 +40,9 @@
       border: 1px solid #ddd; 
       padding: 12px; 
       margin-bottom: 10px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
       background: #fafafa; 
       border-radius: 6px;
     }
-    .error { color: red; font-size: 14px; margin-top: 5px; }
     .thumbs {
       display: flex;
       flex-wrap: wrap;
@@ -74,23 +70,6 @@
   </style>
 </head>
 <body>
-  <h2>Tambah Paket Foto</h2>
-  <form id="formPaket">
-    <input type="hidden" id="paketId">
-    <label>Nama Paket:
-      <input type="text" id="namaPaket" required>
-    </label>
-    <label>Harga (IDR):
-      <input type="number" id="hargaPaket" min="0" required>
-    </label>
-    <div id="errorHarga" class="error" style="display:none;">Harga tidak boleh kosong atau negatif</div>
-    <label>Deskripsi:
-      <textarea id="deskripsiPaket"></textarea>
-    </label>
-    <button type="submit">Simpan</button>
-    <button type="button" onclick="resetPaket()">Reset</button>
-  </form>
-
   <h2>Tambah Galeri</h2>
   <form id="formGaleri">
     <input type="hidden" id="galeriId">
@@ -104,41 +83,10 @@
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetGaleri()">Reset</button>
   </form>
-
-  <h2>Daftar Paket Foto</h2>
-  <div id="listPaket" class="list"></div>
-
-  <h2>Daftar Galeri</h2>
-  <div id="listGaleri" class="list"></div>
-
+  
   <script>
-    let paket = [];
     let galeri = [];
     let fotoArray = []; 
-
-    function renderPaket(){
-      const list = document.getElementById('listPaket');
-      list.innerHTML = '';
-      if(paket.length === 0){ 
-        list.innerHTML = '<p>Belum ada paket</p>'; 
-        return; 
-      }
-      paket.forEach(p=>{
-        const div = document.createElement('div');
-        div.className = 'item';
-        div.innerHTML = `
-          <span>
-            <b>${p.nama}</b> - Rp ${p.harga.toLocaleString()}<br>
-            ${p.deskripsi || ''}
-          </span>
-          <span class="actions">
-            <button onclick="editPaket('${p.id}')">Edit</button>
-            <button onclick="hapusPaket('${p.id}')">Hapus</button>
-          </span>
-        `;
-        list.appendChild(div);
-      });
-    }
 
     function renderGaleri(){
       const list = document.getElementById('listGaleri');
@@ -150,41 +98,18 @@
       galeri.forEach(g=>{
         const div = document.createElement('div');
         div.className = 'item';
-        let thumbs = g.gambar.map(src => `<img src="${src}">`).join('');
         div.innerHTML = `
-          <span>
-            <b>${g.judul}</b>
-            <div class="thumbs">${thumbs}</div>
-          </span>
-          <span class="actions">
+          <b>${g.judul}</b>
+          <div class="thumbs">
+            ${g.gambar.map(src=>`<img src="${src}">`).join('')}
+          </div>
+          <div class="actions">
             <button onclick="editGaleri('${g.id}')">Edit</button>
             <button onclick="hapusGaleri('${g.id}')">Hapus</button>
-          </span>
+          </div>
         `;
         list.appendChild(div);
       });
-    }
-
-    document.getElementById('formPaket').onsubmit = function(e){
-      e.preventDefault();
-      const id = document.getElementById('paketId').value;
-      const nama = document.getElementById('namaPaket').value;
-      const harga = parseInt(document.getElementById('hargaPaket').value);
-      const deskripsi = document.getElementById('deskripsiPaket').value;
-      if(isNaN(harga) || harga < 0){
-        document.getElementById('errorHarga').style.display = 'block';
-        return;
-      } else {
-        document.getElementById('errorHarga').style.display = 'none';
-      }
-      if(id){
-        const p = paket.find(x=>x.id===id);
-        p.nama = nama; p.harga = harga; p.deskripsi = deskripsi;
-      } else {
-        paket.push({id: Date.now().toString(), nama, harga, deskripsi});
-      }
-      resetPaket();
-      renderPaket();
     }
 
     document.getElementById('formGaleri').onsubmit = function(e){
@@ -222,31 +147,11 @@
       });
     });
 
-    function resetPaket(){
-      document.getElementById('formPaket').reset();
-      document.getElementById('paketId').value = '';
-    }
-
     function resetGaleri(){
       document.getElementById('formGaleri').reset();
       document.getElementById('galeriId').value = '';
       document.getElementById('previewFoto').innerHTML = '';
       fotoArray = [];
-    }
-
-    function editPaket(id){
-      const p = paket.find(x=>x.id===id);
-      document.getElementById('paketId').value = p.id;
-      document.getElementById('namaPaket').value = p.nama;
-      document.getElementById('hargaPaket').value = p.harga;
-      document.getElementById('deskripsiPaket').value = p.deskripsi;
-    }
-
-    function hapusPaket(id){
-      if(confirm('Yakin hapus paket?')){
-        paket = paket.filter(p=>p.id!==id);
-        renderPaket();
-      }
     }
 
     function editGaleri(id){
@@ -270,7 +175,6 @@
       }
     }
 
-    renderPaket();
     renderGaleri();
   </script>
 </body>
