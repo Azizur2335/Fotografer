@@ -325,29 +325,21 @@
     <!-- GALERI -->
     <div id="galeriPage" class="hidden">
       <h1>Kelola Galeri Foto</h1>
-      <a href="formGaleriA" class="btn">+ Tambah Foto</a>
+      <a href="formGaleriA.php" class="btn">+ Tambah Foto</a>
       <div class="gallery">
-        <div class="gallery-item">
-          <img src="" alt="Foto">
-          <div class="actions">
-            <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
-            <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="" alt="Foto">
-          <div class="actions">
-            <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
-            <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="" alt="Foto">
-          <div class="actions">
-            <button class="btn btn-edit" onclick="alert('Edit foto')">Edit</button>
-            <button class="btn btn-delete" onclick="alert('Hapus foto?')">Hapus</button>
-          </div>
-        </div>
+        <?php
+          require '../backend/koneksi.php';
+          $result = $koneksi->query("SELECT * FROM galeri ORDER BY id DESC");
+          while ($row = $result->fetch_assoc()) {
+              echo "<div class='gallery-item'>";
+              echo "<img src='galeri/" . htmlspecialchars($row['gambar']) . "' alt='" . htmlspecialchars($row['judul']) . "'>";
+              echo "<div class='actions'>";
+              echo "<button class='btn btn-edit'>Edit</button>";
+              echo "<button class='btn btn-delete'>Hapus</button>";
+              echo "</div>";
+              echo "</div>";
+          }
+        ?>
       </div>
     </div>
 

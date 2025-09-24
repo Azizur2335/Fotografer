@@ -71,111 +71,17 @@
 </head>
 <body>
   <h2>Tambah Galeri</h2>
-  <form id="formGaleri">
-    <input type="hidden" id="galeriId">
+  <form id="formGaleri" action="../backend/upload_galeri.php" method="POST" enctype="multipart/form-data">
+    <input type="hidden" id="galeriId" name="id">
     <label>Judul Galeri:
-      <input type="text" id="judulGaleri" required>
+      <input type="text" id="judulGaleri" name="judul" required>
     </label>
     <label>Pilih Foto (bisa banyak):
-      <input type="file" id="fileGaleri" accept="image/*" multiple>
+      <input type="file" id="fileGaleri" name="gambar[]" accept="image/*" multiple>
     </label>
     <div id="previewFoto" class="thumbs"></div>
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetGaleri()">Reset</button>
   </form>
-  
-  <script>
-    let galeri = [];
-    let fotoArray = []; 
-
-    function renderGaleri(){
-      const list = document.getElementById('listGaleri');
-      list.innerHTML = '';
-      if(galeri.length === 0){ 
-        list.innerHTML = '<p>Belum ada galeri</p>'; 
-        return; 
-      }
-      galeri.forEach(g=>{
-        const div = document.createElement('div');
-        div.className = 'item';
-        div.innerHTML = `
-          <b>${g.judul}</b>
-          <div class="thumbs">
-            ${g.gambar.map(src=>`<img src="${src}">`).join('')}
-          </div>
-          <div class="actions">
-            <button onclick="editGaleri('${g.id}')">Edit</button>
-            <button onclick="hapusGaleri('${g.id}')">Hapus</button>
-          </div>
-        `;
-        list.appendChild(div);
-      });
-    }
-
-    document.getElementById('formGaleri').onsubmit = function(e){
-      e.preventDefault();
-      const id = document.getElementById('galeriId').value;
-      const judul = document.getElementById('judulGaleri').value;
-      if(fotoArray.length === 0){
-        alert('Silakan pilih minimal 1 foto');
-        return;
-      }
-      if(id){
-        const g = galeri.find(x=>x.id===id);
-        g.judul = judul; g.gambar = fotoArray;
-      } else {
-        galeri.push({id: Date.now().toString(), judul, gambar: [...fotoArray]});
-      }
-      resetGaleri();
-      renderGaleri();
-    }
-
-    document.getElementById('fileGaleri').addEventListener('change', function(){
-      fotoArray = [];
-      const files = Array.from(this.files);
-      const preview = document.getElementById('previewFoto');
-      preview.innerHTML = '';
-      files.forEach(file=>{
-        const reader = new FileReader();
-        reader.onload = function(e){
-          fotoArray.push(e.target.result);
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          preview.appendChild(img);
-        }
-        reader.readAsDataURL(file);
-      });
-    });
-
-    function resetGaleri(){
-      document.getElementById('formGaleri').reset();
-      document.getElementById('galeriId').value = '';
-      document.getElementById('previewFoto').innerHTML = '';
-      fotoArray = [];
-    }
-
-    function editGaleri(id){
-      const g = galeri.find(x=>x.id===id);
-      document.getElementById('galeriId').value = g.id;
-      document.getElementById('judulGaleri').value = g.judul;
-      fotoArray = [...g.gambar];
-      const preview = document.getElementById('previewFoto');
-      preview.innerHTML = '';
-      g.gambar.forEach(src=>{
-        const img = document.createElement('img');
-        img.src = src;
-        preview.appendChild(img);
-      });
-    }
-
-    function hapusGaleri(id){
-      if(confirm('Yakin hapus galeri?')){
-        galeri = galeri.filter(g=>g.id!==id);
-        renderGaleri();
-      }
-    }
-
-    renderGaleri();
-  </script>
 </body>
 </html>
