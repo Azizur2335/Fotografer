@@ -58,21 +58,39 @@
       flex-shrink: 0;
     }
   </style>
+  <script>
+    function resetPaket() {
+      document.getElementById('formPaket').reset();
+      document.getElementById('errorHarga').style.display = 'none';
+    }
+  </script>
 </head>
 <body>
   <h2>Tambah Paket Foto</h2>
-  <form id="formPaket">
-    <input type="hidden" id="paketId">
+  <?php if(isset($_GET['success'])): ?>
+  <p style="color:green;">Data paket berhasil disimpan!</p>
+  <?php endif; ?>
+
+  <form id="formPaket" method="POST" action="../backend/upload_paket.php" enctype="multipart/form-data">
+    <input type="hidden" id="paketId" name="paketId">
+    
     <label>Nama Paket:
-      <input type="text" id="namaPaket" required>
+      <input type="text" id="namaPaket" name="namaPaket" required>
     </label>
+    
     <label>Harga (IDR):
-      <input type="number" id="hargaPaket" min="0" required>
+      <input type="number" id="hargaPaket" name="hargaPaket" min="0" required>
     </label>
     <div id="errorHarga" class="error" style="display:none;">Harga tidak boleh kosong atau negatif</div>
+    
     <label>Deskripsi:
-      <textarea id="deskripsiPaket"></textarea>
+      <textarea id="deskripsiPaket" name="deskripsiPaket"></textarea>
     </label>
+    
+    <label>Foto Paket:
+      <input type="file" id="fotoPaket" name="fotoPaket" accept="image/*" required>
+    </label>
+    
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetPaket()">Reset</button>
   </form>

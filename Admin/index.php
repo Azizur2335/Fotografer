@@ -266,58 +266,34 @@
     <!-- PAKET FOTO -->
     <div id="paketPage" class="hidden">
       <h1>Kelola Paket Foto</h1>
-      <a href="formPaketA.php" class="btn">+ Tambah</a>
+      <a href="formPaketA.php" class="btn">+ Tambah Paket</a>
       <table>
         <thead>
           <tr>
             <th>Nama Paket</th>
+            <th>Foto</th>
             <th>Harga</th>
-            <th>Durasi</th>
             <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Paket Wisuda</td>
-            <td>Rp 300.000</td>
-            <td>1 Jam</td>
-            <td>10 Foto + Cetak 5</td>
-            <td class="actions">
-              <button class="btn">Edit</button>
-              <button class="btn">Hapus</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Paket Prewedding</td>
-            <td>Rp 250.000</td>
-            <td>1 Jam</td>
-            <td>10 Foto + Cetak 5</td>
-            <td class="actions">
-              <button class="btn">Edit</button>
-              <button class="btn">Hapus</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Paket Keluarga</td>
-            <td>Rp 400.000</td>
-            <td>2 Jam</td>
-            <td>10 Foto + Cetak 5</td>
-            <td class="actions">
-              <button class="btn">Edit</button>
-              <button class="btn">Hapus</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Paket Event</td>
-            <td>Rp 500.000</td>
-            <td>2 Jam</td>
-            <td>10 Foto + Cetak 5</td>
-            <td class="actions">
-              <button class="btn">Edit</button>
-              <button class="btn">Hapus</button>
-            </td>
-          </tr>
+          <?php
+            require '../backend/koneksi.php';
+            $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC");
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
+                echo "<td><img src='paket/" . htmlspecialchars($row['foto']) . "' alt='" . htmlspecialchars($row['nama_paket']) . "' width='80'></td>";
+                echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
+                echo "<td>" . htmlspecialchars($row['deskripsi']) . "</td>";
+                echo "<td class='actions'>";
+                echo "<a href='../backend/edit_paket.php?id=" . $row['id'] . "' class='btn btn-edit'>Edit</a> ";
+                echo "<a href='../backend/hapus_paket.php?id=" . $row['id'] . "' class='btn btn-delete' onclick='return confirm(\"Yakin hapus paket ini?\")'>Hapus</a>";
+                echo "</td>";
+                echo "</tr>";
+            }
+          ?>
         </tbody>
       </table>
     </div>
