@@ -13,17 +13,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $stmt = $koneksi->prepare($query);
         $stmt->bind_param("sss", $nama, $email, $password);
         
-        if($stmt->execute()){
-            echo "<h1>REGISTRASI BERHASILLL YEYYY</h1>";
-            echo "<p>Selamat yaa, " . $nama . "!! Data kamu telah berhasil disimpan xD.</p>";
-            echo "<button><a href='../SignIn.php'>Kembali</a></button>";
-        } else {
-            if ($koneksi->errno == 1062){
-                echo "<p style='text-align: center; color: red;'> ERROR: EMAIL " . $email . " SUDAH TERDAFTAR. <br> <a href='index.html' style='text-decoration: none; color: red;'>Kembali</a></p>";
-            } else {
-                echo "Error saat registrasi: " . $stmt->error . "<a href='../SignIn.php'>Kembali</a>";
+        try {
+            if($stmt->execute()){
+                echo "<script>alert('REGISTRASI BERHASILLL YEYYY <br> Selamat yaa, " . $nama . "!! Data kamu telah berhasil disimpan xD.'); window.location.href='../SignIn.php';</script>";
             }
-        } $stmt->close();
+        } catch (mysqli_sql_exception $e) {
+            if ($e->getCode() == 1062) { // kode duplicate entry
+                echo "<p style='text-align: center; color: red;'> ERROR: EMAIL " . $email . " SUDAH TERDAFTAR. <br> <a href='../SignUp.php' style='text-decoration: none; color: red;'>Kembali</a></p>";
+            } else {
+                echo "Error saat registrasi: " . $e->getMessage();
+            }
+        }
     }
 } else {
     header('Location: ../SignIn.php');
