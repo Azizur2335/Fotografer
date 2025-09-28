@@ -1,3 +1,13 @@
+<?php
+
+  require '../backend/koneksi.php';
+  $query_total = "SELECT COUNT(*) as total FROM pesan_masuk";
+  $result_total = mysqli_query($koneksi, $query_total);
+  $total_pesan = 0;
+  if($result_total){
+  $row_total = mysqli_fetch_assoc($result_total);
+  $total_pesan = $row_total['total'];
+ }?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -251,9 +261,9 @@
           <p>Foto di Galeri</p>
         </div>
         <div class="card">
-          <span class="icon"><img src="image/email8.png"></span>
-          <h3>0</h3>
-          <p>Pesan Masuk</p>
+            <span class="icon"><img src="image/email8.png"></span>
+            <h3><?php echo $total_pesan; ?></h3>
+            <p>Pesan Masuk</p>
         </div>
         <div class="card">
           <span class="icon"><img src="image/icon3.png"></span>
@@ -321,30 +331,73 @@
 
     <!-- PESAN MASUK -->
     <div id="pesanPage" class="hidden">
-        <h1>Pesan Masuk</h1>
+      <h1>Pesan Masuk</h1>
+      <?php 
+      $result = mysqli_query($koneksi, "SELECT * FROM pesan_masuk ORDER BY tanggal DESC");
+      
+      if($result && mysqli_num_rows($result) > 0) { 
+      ?>
         <table>
+          <thead>
             <tr>
-            <th>Pengirim</th>
-            <th>Preview</th>
-            <th>Tanggal</th>
+              <th>Pengirim</th>
+              <th>Email</th>
+              <th>Topik</th>
+              <th>Opsi</th>
+              <th>Preview</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
             </tr>
-            <tr class="unread">
-            <td>Lucas</td>
-            <td>Halo admin, saya mau tanya tentang paket...</td>
-            <td>17-09-2025</td>
-            </tr>
+          </thead>
+          <tbody>
+            <?php 
+            while($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
-            <td>Mark</td>
-            <td>Halo, saya mau tanya tentang paket..</td>
-            <td>16-09-2025</td>
+              <td><strong><?php echo htmlspecialchars($row['first'] . ' ' . $row['last']); ?></strong></td>
+              <td><?php echo htmlspecialchars($row['email']); ?></td>
+              <td><?php echo htmlspecialchars($row['topic']); ?></td>
+              <td>
+                <?php 
+                  $opsi_text = '';
+                  switch($row['opsi']) {
+                    case '1': $opsi_text = 'Konsultasi'; break;
+                    case '2': $opsi_text = 'Buat Janji'; break;
+                    case '3': $opsi_text = 'Booking'; break;
+                    case '4': $opsi_text = 'Lainnya'; break;
+                    default: $opsi_text = $row['opsi'];
+                  }
+                  echo htmlspecialchars($opsi_text);
+                ?>
+              </td>
+              <td>
+                <div class="preview-text">
+                  <?php echo htmlspecialchars(substr($row['message'], 0, 50)) . '...'; ?>
+                </div>
+              </td>
+              <td><?php echo date('d/m/Y H:i', strtotime($row['tanggal'])); ?></td>
+              <td class="actions">
+                <a href="../backend/detail_pesan.php?id=<?php echo $row['id']; ?>" class="btn btn-view">Lihat</a>
+                <a href="../backend/hapus_pesan.php?id=<?php echo $row['id']; ?>" 
+                  class="btn btn-delete" 
+                  onclick="return confirm('Yakin ingin menghapus pesan ini?')">Hapus</a>
+              </td>
             </tr>
-            <td>Jaemin</td>
-            <td>Halo, saya mau tanya tentang paket..</td>
-            <td>16-09-2025</td>
-            </tr>
+            <?php 
+            }
+            ?>
+          </tbody>
         </table>
+      <?php 
+      } else { 
+      ?>
+        <div class="empty-state">
+          <h3>Belum Ada Pesan</h3>
+          <p>Belum ada pesan masuk dari formulir kontak</p>
+        </div>
+      <?php 
+      } 
+      ?>
     </div>
-    
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
