@@ -99,6 +99,6 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC");
     <?php endwhile; ?>
   </div>
 
-  <a href="Fotografer2.php" class="back-btn">← Kembali</a>
+  <a href="PaketFoto.php" class="back-btn">← Kembali</a>
 </body>
 </html>
