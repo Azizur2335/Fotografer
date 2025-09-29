@@ -55,7 +55,7 @@ body{margin: 0; font-family:Arial, sans-serif;}
 .dropdown:hover .dropdown-content { display: block; }
 
 .header {
-  background: url("/Fotografer1/images/header9.jpg") center center;
+  background: url("../../images/header9.jpg") center center;
   background-size: cover;
   color: white;
   text-align: center;

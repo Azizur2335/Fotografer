@@ -10,20 +10,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($stmt->execute()) {
             $stmt->close();
             mysqli_close($koneksi);
-            echo "<script>alert('Pesan berhasil dihapus.'); window.location='index.php';</script>";
+            echo "<script>alert('Pesan berhasil dihapus.'); window.location='../Admin/index.php';</script>";
             exit();
         } else {
             $stmt->close();
             mysqli_close($koneksi);
-            echo "<script>alert('Terjadi kesalahan saat menghapus pesan.'); window.location='index.php';</script>";
+            echo "<script>alert('Terjadi kesalahan saat menghapus pesan.'); window.location='../Admin/index.php';</script>";
             exit();
         }
     } else {
-        echo "<script>alert('ID tidak valid.'); window.location='index.php';</script>";
+        echo "<script>alert('ID tidak valid.'); window.location='../Admin/index.php';</script>";
         exit();
     }
 } else {
-    header("Location: index.php");
+    header("Location: ../Admin/index.php");
     exit();
 }
 ?>
