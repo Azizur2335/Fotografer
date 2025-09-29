@@ -46,6 +46,21 @@
       background: #fafafa; 
       border-radius: 6px;
     }
+    .btn-kembali {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #343434;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+    }
+    .btn-kembali:hover {
+      background: #6d6d6d;
+    }
     .error { color: red; font-size: 14px; margin-top: 5px; }
     .actions button {
       width: auto;
@@ -103,5 +118,6 @@
     <button type="button" onclick="resetPaket()">Reset</button>
   </form>
   <button class="back"><a href="index.php">Kembali</a></button>
+  <a href="index.php" class="btn-kembali">← Kembali</a>
 </body>
 </html>

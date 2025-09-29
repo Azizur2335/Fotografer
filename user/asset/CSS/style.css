@@ -4,6 +4,7 @@ body{margin: 0; font-family:Arial, sans-serif;}
   align-items: center;
   justify-content: space-between; 
   padding: 10px 50px;
+  background-color: #ffffff; 
 }
 .logo{
   font-weight: bold;
@@ -14,7 +15,7 @@ body{margin: 0; font-family:Arial, sans-serif;}
   color: black;
 }
 .btn {
-  background: black; 
+  background: rgb(0, 0, 0); 
   color: white; 
   padding: 6px 12px;
   text-decoration: none; 
@@ -54,7 +55,7 @@ body{margin: 0; font-family:Arial, sans-serif;}
 .dropdown:hover .dropdown-content { display: block; }
 
 .header {
-  background: url("../../images/header9.jpg") center center;
+  background: url("/Fotografer1/images/header9.jpg") center center;
   background-size: cover;
   color: white;
   text-align: center;
@@ -90,7 +91,7 @@ body{margin: 0; font-family:Arial, sans-serif;}
 
 .paket {
   padding: 1px 50px;
-  background: #fff;
+  background: #ffffff;
   color: black;
 }
 .paket-header {
@@ -135,13 +136,13 @@ body{margin: 0; font-family:Arial, sans-serif;}
   margin-bottom: 10px;
 }
 .harga {
-  font-weight: bold;
-  margin-top: 8px;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
 .footer {
-  padding: 70px 10px;
-  background: #fff;
+  padding: 80px 50px 0 50px;
+  background: #ffffff;
   color: black;
   font-size: 14px;
 }
@@ -188,5 +189,3 @@ body{margin: 0; font-family:Arial, sans-serif;}
   color: black;
   font-size: 13px;
 }
-
-

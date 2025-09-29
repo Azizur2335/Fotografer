@@ -132,13 +132,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       display: flex;
       flex-shrink: 0;
     }
-    .back {
-      width: 150px;
-      margin-left: 15px;
-    }
-    .back a {
-      text-decoration: none;
+    .btn-kembali {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: #343434;
       color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    .btn-kembali:hover {
+      background: #6d6d6d;
     }
   </style>
   <script>
@@ -178,6 +186,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit">Simpan Perubahan</button>
     <button type="button" onclick="resetPaket()">Reset</button>
   </form>
-  <button><a href="../Admin/index.php">Kembali</a></button>
 </body>
 </html>

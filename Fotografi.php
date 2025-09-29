@@ -72,7 +72,7 @@
         </p>
       </div>
 
-      <form class="form-lp">
+      <form class="form-lp" action="backend/proses_form.php" method="POST">
         <div class="grid-2-lp">
           <div>
             <label class="label-lp">Nama Depan</label>
@@ -110,12 +110,10 @@
         <div class="radio-group-lp">
           <label class="label-lp mb-10-lp">Apa yang Anda butuhkan?</label>
           <div class="radio-options-lp">
-            <label><input type="radio" name="opsi" value="1"> Pilihan Pertama</label>
-            <label><input type="radio" name="opsi" value="2"> Pilihan Kedua</label>
-            <label><input type="radio" name="opsi" value="3"> Pilihan Ketiga</label>
-            <label><input type="radio" name="opsi" value="4"> Pilihan Keempat</label>
-            <label><input type="radio" name="opsi" value="5"> Pilihan Kelima</label>
-            <label><input type="radio" name="opsi" value="6"> Lainnya</label>
+            <label><input type="radio" name="opsi" value="1"> Konsultasi </label>
+            <label><input type="radio" name="opsi" value="2"> Buat Janji</label>
+            <label><input type="radio" name="opsi" value="3"> Booking</label>
+            <label><input type="radio" name="opsi" value="4"> Lainnya</label>
           </div>
         </div>
 
