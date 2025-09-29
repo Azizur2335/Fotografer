@@ -132,6 +132,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       display: flex;
       flex-shrink: 0;
     }
+    .back {
+      width: 150px;
+      margin-left: 15px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #fff;
+    }
   </style>
   <script>
     function resetPaket() {
@@ -170,5 +178,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit">Simpan Perubahan</button>
     <button type="button" onclick="resetPaket()">Reset</button>
   </form>
+  <button><a href="../Admin/index.php">Kembali</a></button>
 </body>
 </html>

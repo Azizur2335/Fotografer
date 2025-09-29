@@ -57,6 +57,14 @@
       display: flex;
       flex-shrink: 0;
     }
+    .back {
+      width: 150px;
+      margin-left: 15px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #fff;
+    }
   </style>
   <script>
     function resetPaket() {
@@ -94,5 +102,6 @@
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetPaket()">Reset</button>
   </form>
+  <button class="back"><a href="index.php">Kembali</a></button>
 </body>
 </html>
