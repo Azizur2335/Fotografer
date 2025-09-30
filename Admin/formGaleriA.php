@@ -67,6 +67,14 @@
       display: flex;
       flex-shrink: 0;
     }
+    .back {
+      width: 150px;
+      margin-left: 15px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -83,5 +91,13 @@
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetGaleri()">Reset</button>
   </form>
+  .back {
+      width: 150px;
+      margin-left: 15px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #fff;
+    }
 </body>
 </html>

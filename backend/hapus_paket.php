@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
         $stmt->execute();
         $stmt->close();
     }
-    header("Location: ../Admin/formPaketA.php");
+    header("Location: ../Admin/index.php");
     exit();
 } else {
     die("ID paket tidak ditemukan.");

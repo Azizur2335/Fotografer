@@ -14,7 +14,7 @@ if(isset($_GET['id'])){
     } else {
         echo "<script>
             alert('Pesan tidak ditemukan!');
-            window.location.href = 'index.php';
+            window.location.href = '../Admin/index.php';
         </script>";
         exit();
     }

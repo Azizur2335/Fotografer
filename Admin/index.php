@@ -1,13 +1,18 @@
 <?php
+require '../backend/koneksi.php';
 
-  require '../backend/koneksi.php';
+  $resultPaket = $koneksi->query("SELECT COUNT(*) AS total FROM paket_foto");
+  $dataPaket   = $resultPaket->fetch_assoc();
+  $totalPaket  = $dataPaket['total'];
+
   $query_total = "SELECT COUNT(*) as total FROM pesan_masuk";
   $result_total = mysqli_query($koneksi, $query_total);
   $total_pesan = 0;
   if($result_total){
   $row_total = mysqli_fetch_assoc($result_total);
   $total_pesan = $row_total['total'];
- }?>
+ }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,20 +22,20 @@
   <style>
     body {
       font-family: 'Merriweather';
-      background-color: #fff;
-      color: #000;
+      background-color: #f6f8f4ff;
+      color: #000000ff;
     }
     .topbar {
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 15px 20px;
-      border-bottom: 1px solid #797979;
+      border-bottom: 5px solid #f6f8f4ff;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: #fff;
+      background: hsla(181, 42%, 40%, 1.00); /* hijau dengan transparansi */
       z-index: 1000;
     }
     .hamburger {
@@ -45,12 +50,12 @@
     }
     .sidebar {
       position: fixed;
-      top: 50px;
+      top: 60px;
       left: 0;
       width: 250px;
       height: 100%;
-      background-color: #fff;
-      border-right: 1px solid #797979;
+      background-color: hsla(181, 42%, 40%, 1.00); /* hijau transparan */
+      border-right: 5px solid #f6f8f4ff;
       padding-top: 20px;
       transition: left 0.3s ease;
       z-index: 999;
@@ -62,7 +67,7 @@
       display: flex;
       align-items: center;
       padding: 15px 20px;
-      color: #2b2b2b;
+      color: #000000ff;
       text-decoration: none;
       font-size: 15px;
       transition: 0.2s;
@@ -78,9 +83,9 @@
       vertical-align: middle; 
     }
     .nav-item:hover, .nav-item.active {
-      border-left: 5px solid #949494;
-      background-color: #e8e8e8;
-      color: #000;
+      border-left: 5px solid #72a2d6ff;
+      background-color: #85acd5ff;
+      color: #000000ff;
     }
     .main-content {
       margin-top: 60px;
@@ -95,6 +100,7 @@
     .welcome {
       text-align: center;
       margin: 40px 0;
+      color: #000000ff;
     }
     .welcome h2 {
       font-size: 28px;
@@ -102,7 +108,6 @@
     }
     .welcome p {
       font-size: 16px;
-      color: #555;
     }
     .cards {
       display: grid;
@@ -112,13 +117,13 @@
       margin: 0 auto;
     }
     .card {
-      background: #fff;
+      background: #d5f9ffff;
       padding: 20px;
-      border: 1px solid #797979;
+      border: 1px solid #254e7a;
       border-radius: 10px;
       text-align: center;
       transition: transform 0.2s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     .card:hover {
       transform: translateY(-5px);
@@ -128,7 +133,7 @@
       margin: 10px 0;
     }
     .card p {
-      color: #555;
+      color: #000000ff;
     }
     .icon img {
       width: 30px;  
@@ -138,7 +143,7 @@
       display: none;
     }
     h1 {
-      border-bottom: 1px solid  #908f8fff;
+      border-bottom: 3px solid  #112337ff;
       text-align: center;
       padding-bottom: 20px;
       margin-bottom: 10px;
@@ -149,8 +154,8 @@
       margin: 10px 0;
       border: none;
       border-radius: 5px;
-      background: #000;
-      color: #fff;
+      background: #0c3e72ff;
+      color: #ffffffff;
       cursor: pointer;
       font-size: 14px;
       transition: 0.3s;
@@ -162,18 +167,18 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      background: #fff;
+      background: #ffffffff;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 5px rgba(0,0,0,0.1);
     }
     table th, table td {
       padding: 12px;
       text-align: left;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #083260ff;
     }
     table th {
-      background: #f0f0f0;
+      background: #91979dff;
     }
     .actions button {
       margin-right: 5px;
@@ -214,8 +219,12 @@
     .gallery-item:hover .actions {
       opacity: 1;
     }
-    .btn-edit { background: #007bff; color: #fff; }
-    .btn-delete { background: #dc3545; color: #fff; }
+    .btn-edit { background: #0c3e72ff; color: #f7f3ea; }
+    .btn-delete { background: #572127ff; color: #f7f3ea; }
+    .sidebar img,
+      #dashboardPage .card img {
+      filter: invert(100%);
+    }
   </style>
 </head>
 <body>
@@ -252,7 +261,7 @@
       <div class="cards">
         <div class="card">
           <span class="icon"><img src="image/camera3.png"></span>
-          <h3>0</h3>
+          <h3><?php echo $totalPaket; ?></h3>
           <p>Paket Foto</p>
         </div>
         <div class="card">

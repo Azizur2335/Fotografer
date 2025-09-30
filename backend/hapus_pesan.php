@@ -18,6 +18,6 @@ if(isset($_GET['id'])) {
         exit();
     }
 } else {
-    header("Location: ../Admin/index.php?page=pesan");
+    header("Location: index.php");
     exit();
 }
