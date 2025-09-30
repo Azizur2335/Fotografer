@@ -98,7 +98,7 @@
         <div class="mt-20-lp">
           <label class="label-lp">Pilih Topik</label>
           <select name="topic" required>
-            <option value="">Pilih satu...</option>
+            <option value="" disabled selected hidden>Pilih satu...</option>
             <option value="Prewedding">Prewedding</option>
             <option value="Produk">Produk/Komersial</option>
             <option value="Acara">Acara/Keluarga</option>
