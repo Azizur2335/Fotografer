@@ -117,7 +117,6 @@
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetPaket()">Reset</button>
   </form>
-  <button class="back"><a href="index.php">Kembali</a></button>
   <a href="index.php" class="btn-kembali">← Kembali</a>
 </body>
 </html>

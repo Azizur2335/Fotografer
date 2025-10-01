@@ -67,13 +67,20 @@
       display: flex;
       flex-shrink: 0;
     }
-    .back {
-      width: 150px;
-      margin-left: 15px;
+    .btn-kembali {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #343434;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s;
     }
-    .back a {
-      text-decoration: none;
-      color: #fff;
+    .btn-kembali:hover {
+      background: #6d6d6d;
     }
   </style>
 </head>
@@ -91,13 +98,6 @@
     <button type="submit">Simpan</button>
     <button type="button" onclick="resetGaleri()">Reset</button>
   </form>
-  .back {
-      width: 150px;
-      margin-left: 15px;
-    }
-    .back a {
-      text-decoration: none;
-      color: #fff;
-    }
+  <a href="index.php" class="btn-kembali">← Kembali</a>
 </body>
 </html>
