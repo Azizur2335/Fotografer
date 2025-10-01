@@ -103,6 +103,16 @@
       font-size: 50px;
       color: #000;
     }
+    button a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+    button a:hover {
+      color: inherit;
+    }
     .btn-dark {
       background-color: black;
       color: white;
@@ -311,6 +321,7 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       padding-bottom: 20px;
+      scrollbar-width: none;
     }
 
     .testimonial-card {
@@ -430,7 +441,7 @@
     <p style="text-align: center">
       Kami siap membantu Anda menangkap setiap momen berharga dalam hidup. Dengan <br>
       pengalaman dan keahlian, kami menjamin hasil yang memuaskan. <br><br>
-      <button class="btn-dark"><a href="user/galeri.php">Lihat</a></button>
+      <button class="btn-dark"><a href="user/GaleriUser.php">Lihat</a></button>
       <button class="btn-light"> <a href="user/PaketFoto.php">Paket</a></button>
     </p><br>
   </section>
@@ -596,6 +607,30 @@
           <div class="profile-info">
             <strong>Siti Aminah</strong>
             <span>Direktur, Studio XYZ</span>
+          </div>
+        </div>
+        <a href="#" class="read-more">Baca studi kasus →</a>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="quote">"Tim fotografernya sangat ramah dan hasilnya luar biasa!"</p>
+        <div class="profile">
+          <i class='bx  bx-user'  ></i>
+          <div class="profile-info">
+            <strong>Budi Santoso</strong>
+            <span>CEO, Startup ABC</span>
+          </div>
+        </div>
+        <a href="#" class="read-more">Baca studi kasus →</a>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="quote">"Tim fotografernya sangat ramah dan hasilnya luar biasa!"</p>
+        <div class="profile">
+          <i class='bx  bx-user'  ></i>
+          <div class="profile-info">
+            <strong>Budi Santoso</strong>
+            <span>CEO, Startup ABC</span>
           </div>
         </div>
         <a href="#" class="read-more">Baca studi kasus →</a>
