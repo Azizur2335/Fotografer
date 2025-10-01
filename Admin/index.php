@@ -30,13 +30,13 @@ require '../backend/koneksi.php';
       align-items: center;
       gap: 10px;
       padding: 15px 20px;
-      border-bottom: 5px solid #f6f8f4ff;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       background: hsla(181, 42%, 40%, 1.00); /* hijau dengan transparansi */
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     .hamburger {
       font-size: 22px;
