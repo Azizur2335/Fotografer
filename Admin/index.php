@@ -219,7 +219,6 @@ require '../backend/koneksi.php';
     .gallery-item:hover .actions {
       opacity: 1;
     }
-    .btn-edit { background: #0c3e72ff; color: #f7f3ea; }
     .btn-delete { background: #572127ff; color: #f7f3ea; }
     .sidebar img,
       #dashboardPage .card img {
@@ -329,8 +328,7 @@ require '../backend/koneksi.php';
               echo "<div class='gallery-item'>";
               echo "<img src='galeri/" . htmlspecialchars($row['gambar']) . "' alt='" . htmlspecialchars($row['judul']) . "'>";
               echo "<div class='actions'>";
-              echo "<button class='btn btn-edit'>Edit</button>";
-              echo "<button class='btn btn-delete'>Hapus</button>";
+              echo "<a href='../backend/hapus_galeri.php?id=" . $row['id'] . "'class='btn btn-delete' onclick='return confirm(\"Yakin hapus foto ini?\")'>Hapus</a>";
               echo "</div>";
               echo "</div>";
           }
