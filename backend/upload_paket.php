@@ -1,40 +1,82 @@
 <?php
-require 'koneksi.php'; 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama   = htmlspecialchars($_POST['namaPaket']);
-    $harga  = (int) $_POST['hargaPaket'];
-    $desk   = htmlspecialchars($_POST['deskripsiPaket']);
-    $file   = $_FILES['fotoPaket'];
-    $targetDir = "../Admin/paket/";
-
-    if ($file['error'] !== UPLOAD_ERR_OK) {
-        die("Terjadi kesalahan saat upload file: " . $file['error']);
-    }
-
-    $fileName   = time() . "_" . basename($file['name']);
-    $targetFile = $targetDir . $fileName;
-    $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    $allowed  = ["jpg", "jpeg", "png", "gif"];
-
-    if (!in_array($fileType, $allowed)) {
-        die("Format file tidak diizinkan.");
-    }
-
-    if (!move_uploaded_file($file['tmp_name'], $targetFile)) {
-        die("Gagal upload file.");
-    }
-
-    $stmt = $koneksi->prepare(
-        "INSERT INTO paket_foto (nama_paket, harga, deskripsi, foto) VALUES (?, ?, ?, ?)"
-    );
-    if (!$stmt) die("Gagal prepare statement: " . $koneksi->error);
-    $stmt->bind_param("siss", $nama, $harga, $desk, $fileName);
-    if (!$stmt->execute()) die("Gagal simpan ke database: " . $stmt->error);
-    $stmt->close();
-
-    // **Redirect relative path**
-    header("Location: ../Admin/formPaketA.php?success=1");
-    exit();
-}
+require 'koneksi.php';
 ?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kelola Paket Foto</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    img {
+      max-width: 120px;
+      height: auto;
+    }
+    .btn {
+      display: inline-block;
+      padding: 6px 10px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .btn-danger {
+      background: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kelola Paket Foto</h1>
+
+  <!-- Tombol tambah paket -->
+  <a href="tambahPaket.php" class="btn">+ Tambah Paket</a>
+  <br><br>
+
+  <!-- Bagian Fitur Paket -->
+  <h2>Fitur Paket</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama Paket</th>
+        <th>Harga</th>
+        <th>Deskripsi</th>
+        <th>Foto</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      // Ambil data paket dari database
+      $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC");
+      
+      if ($result && $result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>" . htmlspecialchars($row['nama_paket']) . "</td>";
+              echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
+              echo "<td>" . nl2br(htmlspecialchars($row['deskripsi'])) . "</td>";
+              echo "<td><img src='paket/" . htmlspecialchars($row['foto']) . "' alt='Foto Paket'></td>";
+              echo "<td>
+                      <a href='hapusPaket.php?id=" . $row['id'] . "' class='btn btn-danger' onclick=\"return confirm('Yakin hapus paket ini?')\">Hapus</a>
+                    </td>";
+              echo "</tr>";
+          }
+      } else {
+          echo "<tr><td colspan='5'>Belum ada paket yang ditambahkan.</td></tr>";
+      }
+      ?>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -677,13 +677,6 @@
   <footer>
   <div class="footer-top">
     <div class="logo">Logo</div>
-    <div class="tengah">
-      <p>Menu</p>
-      <p>Link</p>
-      <p>Link</p>
-      <p>Link</p>
-      <p>Link</p>
-    </div>
     <div>
       <i class='bxl  bx-facebook-circle'  ></i> 
       <i class='bxl  bx-instagram'  ></i> 
@@ -697,9 +690,6 @@
   <section class="footer-bottom">
     <div>
       <p>© 2025 Sejahtera Photography. All rights reserved.</p>
-      <a href="#">Kebijakan Privasi</a>
-      <a href="#">Syarat Layanan</a>
-      <a href="#">Pengaturan Cookies</a>
     </div>
   </section>
 </footer>
