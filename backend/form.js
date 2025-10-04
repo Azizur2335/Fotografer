@@ -5,11 +5,11 @@ function validasiForm(){
     let adA = false; let adHB = false; let adHK = false;
 
     if (nama.trim() === "" || email.trim() === "" || password.trim() === ""){
-        alert("ISI SEMUA FORM WOY!!");
+        alert("ISI SEMUA FORM TERLEBIH DAHULU!!");
         return false;
     }
     if (password.length < 6){
-        alert("PASSWORDNYA MINIMAL 6 KARAKTER KOCAK!!");
+        alert("PASSWORD MINIMAL 6 KARAKTER!!");
         return false;
     } else {
         for (let i = 0; i < password.length; i++){
@@ -23,7 +23,7 @@ function validasiForm(){
             }
         }
         if (!adA || !adHK || !adHB){
-            alert("HARUS PAKE ANGKA, HURUF BESAR, DAN HURUF KECIL DONGGG KOCAKK!!!!");
+            alert("HARUS MEMAKAI ANGKA, HURUF BESAR, DAN HURUF KECIL !!!!");
             return false;
         }
     }
@@ -37,7 +37,7 @@ function validasiLogin(){
     const password = document.getElementById('password').value;
 
     if (email.trim() === "" || password.trim() === "") {
-        alert("ISI SEMUANYA YA KOCAK!!!");
+        alert("ISI SEMUANYA TERLEBIH DAHULU!!!");
         return false;
     }
     return true;

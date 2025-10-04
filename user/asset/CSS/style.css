@@ -1,37 +1,40 @@
-body{margin: 0; font-family:Arial, sans-serif; background: linear-gradient(to bottom right, #f6efedff, #cdaaaaff);}
-.navbar{
-  display: flex; 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #f6efedff, #cdaaaaff);
+}
+.navbar {
+  display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
   padding: 10px 50px;
   background-color: #cdaaaaff;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  position: sticky; 
+  position: sticky;
   top: 0;
 }
-.logo{
+.logo {
   font-weight: bold;
 }
-.menu a{
-  margin: 0 10px; 
-  text-decoration: none; 
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
   color: black;
 }
 p {
   text-align: center;
-
 }
 .btn {
-  background: rgb(0, 0, 0); 
-  color: white; 
+  background: rgb(0, 0, 0);
+  color: white;
   padding: 6px 12px;
-  text-decoration: none; 
+  text-decoration: none;
   border-radius: 4px;
 }
 .btn.second {
   background: transparent;
-  color:white;
+  color: white;
 }
 .btn.second:hover {
   background: white;
@@ -59,8 +62,12 @@ p {
   text-decoration: none;
   display: block;
 }
-.dropdown-content a:hover { background-color: #f1efef; }
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a:hover {
+  background-color: #f1efef;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .header {
   background: url("../../images/header9.jpg") center center;
@@ -83,9 +90,9 @@ p {
   font-size: 16px;
 }
 .header-buttons {
-  display: flex;           
-  justify-content: center;    
-  gap: 20px;                
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 .header-buttons .btn {
   padding: 10px 20px;
@@ -122,7 +129,7 @@ p {
 }
 .paket-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .paket-card {
@@ -157,9 +164,9 @@ p {
   font-size: 14px;
 }
 .footer-top {
-  display: flex; 
+  display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 .footer-logo {
   font-weight: bold;
@@ -188,7 +195,7 @@ p {
   gap: 30px;
   font-size: 13px;
 }
-.footer-bottom h4{
+.footer-bottom h4 {
   font-weight: normal;
 }
 .footer-links {
@@ -198,4 +205,128 @@ p {
 .footer-links a {
   color: black;
   font-size: 13px;
+}
+.detail-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.3s ease;
+}
+.detail-overlay.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: slideUp 0.4s ease;
+  position: relative;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.detail-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+.detail-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+.detail-image {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+.detail-content {
+  padding: 40px;
+}
+.detail-title {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+.detail-price {
+  font-size: 2em;
+  color: #473026ff;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.detail-features {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.detail-features h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+.detail-features p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+.detail-actions {
+  display: flex;
+  justify-content: center;
+}
+.btn-pesan {
+  background: #473026ff;
+  color: white;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+.btn-pesan:hover {
+  background: #473026ff;
+}
+.paket-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.paket-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }

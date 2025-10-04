@@ -24,7 +24,6 @@ $result = $koneksi->query("SELECT * FROM galeri ORDER BY id DESC");
                 </div>
             <?php endwhile; ?>
         </div>
-    <!-- FOOTER -->
     <div class="footer">
         <div class="footer-top">
             <div class="footer-logo">Logo</div>

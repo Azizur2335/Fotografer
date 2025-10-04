@@ -1,6 +1,5 @@
 <?php
 require '../backend/koneksi.php';
-// Ambil data paket dari database
 $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
 ?>
 <!DOCTYPE html>
@@ -8,96 +7,6 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
 <head>
     <title>Fotografer2</title>
     <link rel="stylesheet" href="asset/css/style.css">
-    <style>
-        /* Style untuk halaman detail */
-        .detail-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 9999;
-            overflow-y: auto;
-            padding: 40px 20px;
-            animation: fadeIn 0.3s ease;
-        }
-        .detail-overlay.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .detail-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            animation: slideUp 0.4s ease;
-            position: relative;
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .detail-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 10;
-            transition: background 0.3s ease;
-        }
-        .detail-close:hover { background: rgba(0,0,0,0.9); }
-        .detail-image { width: 100%; height: 450px; object-fit: cover; }
-        .detail-content { padding: 40px; }
-        .detail-title { font-size: 2.5em; color: #333; margin-bottom: 20px; }
-        .detail-price { font-size: 2em; color: #473026ff; font-weight: bold; margin-bottom: 30px; }
-        .detail-features {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        .detail-features h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        .detail-features p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.1em;
-        }
-        .detail-actions { display: flex; justify-content: center; }
-        .btn-pesan {
-            background: #473026ff;
-            color: white;
-            padding: 15px 50px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-        }
-        .btn-pesan:hover { background: #473026ff; }
-        .paket-card {
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .paket-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-    </style>
 </head>
 <body>
     <script src="asset/JS/script.js"></script>

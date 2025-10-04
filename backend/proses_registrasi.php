@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if (empty($nama) || empty($email) || empty($_POST['password'])) {
-        echo "ERROR: ISI SEMUA DULU KOCAKKK!!! <a href='SignUp.php>Kembali</a>";
+        echo "ERROR: ISI SEMUA TERLEBIH DAHULU!!! <a href='SignUp.php>Kembali</a>";
     } else {
         $query = "INSERT INTO data_user (nama, email, password) VALUES (?, ?, ?)";
         $stmt = $koneksi->prepare($query);

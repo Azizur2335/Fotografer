@@ -38,12 +38,8 @@ require 'koneksi.php';
 </head>
 <body>
   <h1>Kelola Paket Foto</h1>
-
-  <!-- Tombol tambah paket -->
   <a href="tambahPaket.php" class="btn">+ Tambah Paket</a>
   <br><br>
-
-  <!-- Bagian Fitur Paket -->
   <h2>Fitur Paket</h2>
   <table>
     <thead>
@@ -59,7 +55,6 @@ require 'koneksi.php';
       <?php
       // Ambil data paket dari database
       $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC");
-      
       if ($result && $result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
               echo "<tr>";
