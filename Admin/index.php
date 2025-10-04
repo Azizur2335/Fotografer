@@ -22,8 +22,9 @@ require '../backend/koneksi.php';
   <style>
     body {
       font-family: 'Merriweather';
-      background-color: #f6f8f4ff;
-      color: #000000ff;
+      background-color: #f3ebebff;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+      color: #311919ff;
     }
     .topbar {
       display: flex;
@@ -34,7 +35,7 @@ require '../backend/koneksi.php';
       top: 0;
       left: 0;
       right: 0;
-      background: hsla(181, 42%, 40%, 1.00); /* hijau dengan transparansi */
+      background-color: #cdaaaaff;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
@@ -54,8 +55,8 @@ require '../backend/koneksi.php';
       left: 0;
       width: 250px;
       height: 100%;
-      background-color: hsla(181, 42%, 40%, 1.00); /* hijau transparan */
-      border-right: 5px solid #f6f8f4ff;
+      background-color: #cdaaaaff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
       padding-top: 20px;
       transition: left 0.3s ease;
       z-index: 999;
@@ -67,7 +68,7 @@ require '../backend/koneksi.php';
       display: flex;
       align-items: center;
       padding: 15px 20px;
-      color: #000000ff;
+      color: #311919ff;
       text-decoration: none;
       font-size: 15px;
       transition: 0.2s;
@@ -83,9 +84,9 @@ require '../backend/koneksi.php';
       vertical-align: middle; 
     }
     .nav-item:hover, .nav-item.active {
-      border-left: 5px solid #72a2d6ff;
-      background-color: #85acd5ff;
-      color: #000000ff;
+      border-left: 5px solid #d5c0c0ff;
+      background-color: #f3ebebff;
+      color: #311919ff;
     }
     .main-content {
       margin-top: 60px;
@@ -100,7 +101,7 @@ require '../backend/koneksi.php';
     .welcome {
       text-align: center;
       margin: 40px 0;
-      color: #000000ff;
+      color: #311919ff;
     }
     .welcome h2 {
       font-size: 28px;
@@ -117,13 +118,13 @@ require '../backend/koneksi.php';
       margin: 0 auto;
     }
     .card {
-      background: #d5f9ffff;
+      background: #ffffffff;
       padding: 20px;
-      border: 1px solid #254e7a;
+      border: 1px solid #d5bbbbff;
       border-radius: 10px;
       text-align: center;
       transition: transform 0.2s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 5px rgba(182, 147, 147, 0.83);
     }
     .card:hover {
       transform: translateY(-5px);
@@ -133,7 +134,7 @@ require '../backend/koneksi.php';
       margin: 10px 0;
     }
     .card p {
-      color: #000000ff;
+      color: #311919ff;
     }
     .icon img {
       width: 30px;  
@@ -154,7 +155,7 @@ require '../backend/koneksi.php';
       margin: 10px 0;
       border: none;
       border-radius: 5px;
-      background: #0c3e72ff;
+      background: #5b4343ff;
       color: #ffffffff;
       cursor: pointer;
       font-size: 14px;
@@ -162,7 +163,7 @@ require '../backend/koneksi.php';
       text-decoration: none;
     }
     .btn:hover {
-      background: #444;
+      background: #4c3838ff;
     }
     table {
       width: 100%;
@@ -175,10 +176,10 @@ require '../backend/koneksi.php';
     table th, table td {
       padding: 12px;
       text-align: left;
-      border-bottom: 1px solid #083260ff;
+      border-bottom: 1px solid #f4ececff;
     }
     table th {
-      background: #91979dff;
+      background: #cdaaaaff;
     }
     .actions button {
       margin-right: 5px;
@@ -219,11 +220,7 @@ require '../backend/koneksi.php';
     .gallery-item:hover .actions {
       opacity: 1;
     }
-    .btn-delete { background: #572127ff; color: #f7f3ea; }
-    .sidebar img,
-      #dashboardPage .card img {
-      filter: invert(100%);
-    }
+    .btn-delete { background: #6b1a24ff; color: #f7f3ea; }
   </style>
 </head>
 <body>

@@ -4,27 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <title>Dashboard</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #333;
+      background: linear-gradient(to bottom right, #f6efedff, #cdaaaaff);
+      color: #32201cff;
     }
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 40px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #cdaaaaff;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     }
-    .logo {
-      color: black;
-      font-size: 24px;
-      font-family: 'brush script MT', cursive;
+    .logo{
+      font-weight: bold;
     }
     nav {
       display: flex;
@@ -34,11 +31,11 @@
     }
     nav a {
       text-decoration: none;
-      color: #333;
+      color: #32201cff;
       transition: color 0.3s;
     }
     nav a:hover {
-      color: #555;
+      color: #472d27ff;
     }
     .arrow {
       display: inline-block;
@@ -77,7 +74,7 @@
       display: block;
     }
     .hubungi-btn {
-      background-color: #000;
+      background-color: #32201cff;
       color: #fff;
       padding: 8px 16px;
       text-decoration: none;
@@ -101,7 +98,7 @@
     h1 {
       text-align: center;
       font-size: 50px;
-      color: #000;
+      color: #32201cff;
     }
     button a {
       color: inherit;
@@ -113,25 +110,27 @@
     button a:hover {
       color: inherit;
     }
-    .btn-dark {
-      background-color: black;
+    .btn {
+      background: #32201cff(0, 0, 0); 
+      color: white; 
+      padding: 6px 12px;
+      text-decoration: none; 
+      border-radius: 4px;
+    }
+    .btn.second {
+      background: transparent;
+      color: black; /* bisa diganti sesuai tema */
+      border: 1px solid black;
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin: 0 5px; /* jarak antar tombol */
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .btn.second:hover {
+      background: #32201cff;
       color: white;
-      padding: 10px 20px;
-      border: 1px solid grey;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-light {
-      background-color: white;
-      color: black;
-      padding: 10px 20px;
-      border: 1px solid grey;
-      cursor: pointer;
-    }
-
-    .btn-light a {
-      color: #000;
-      text-decoration: none;
     }
     section {
       padding: 60px 20px;
@@ -145,22 +144,25 @@
     /* Paket */
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+      gap: 20px;                             /* jarak antar card */
       margin: 40px 30px;
       padding: 20px;
     }
     .card {
-      padding: 20px;
-      border: 1px solid #ffffffff;
-      border-radius: 8px;
-      background: #ffffffff;
+      background-color: #fff;
+      border: 2px solid #32201cff;   /* border kotak tiap card */
+      padding: 40px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card img {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 15px;
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card a {
+      text-decoration: none;    /* hilangkan underline */
+      color: #32201cff;
     }
     .gallery {
       display: grid;
@@ -172,7 +174,8 @@
     .gallery img {
       width: 100%;        /* penuh sesuai kolom */
       height: 100%;      /* tinggi seragam */
-      object-fit: cover;  /* gambar dipotong biar proporsi terjaga */
+      object-fit: cover;
+      border-color: #32201cff;  /* gambar dipotong biar proporsi terjaga */
       border-radius: 8px; /* biar rapi */
     }
     /* Kontak */
@@ -181,8 +184,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      margin: auto;
+      padding: 40px 0px;
     }
     .kontak-info h2 {
       font-size: 28px;
@@ -254,7 +257,7 @@
 
     /* Tombol submit */
     .btn-submit {
-      background: black;
+      background: #32201cff;
       color: white;
       padding: 12px 16px;
       border: none;
@@ -269,7 +272,8 @@
     /* Footer */
     footer {
       padding: 15px 40px;
-      background: #fff;
+      background-color: #cdaaaaff;
+      box-shadow: 20px 10px 5px rgba(0, 0, 0, 0.05);
     }
 
     /* bagian atas */
@@ -335,7 +339,7 @@
     .testimonial-card p.quote {
       font-size: 15px;
       margin-bottom: 20px;
-      color: #222;
+      color: #32201cff;
     }
 
     .profile {
@@ -381,26 +385,8 @@
       border-radius: 50%;
       cursor: pointer;
       font-size: 18px;
+      color: #32201cff;
     }
-
-    .dots {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .dot {
-      height: 8px;
-      width: 8px;
-      margin: 0 4px;
-      background-color: #ccc;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dot.active {
-      background-color: #000;
-    }
-
     .card i {
       font-size: 60px;
     }
@@ -423,69 +409,63 @@
         <a href="#Tentang-kami">Tentang kami</a>
         <a href="#Paket-foto">Paket foto</a>
         <a href="#Galeri">Galeri</a>
-        <div class="dropdown">
-          <a href="#Kontak-kami" class="dropdown-btn">Kontak kami<span class="arrow"></span></a>
-          <div class="dropdown-content">
-            <a href="#WhatsApp">WhatsApp</a>
-            <a href="#Email">Email</a>
-          </div>
-        </div>
+        <a href="#Kontak-kami">Kontak kami</a>
       </nav>
       <a href="SignIn.php" class="hubungi-btn">Log In</a>
   </header>
   <!-- Tentang Kami -->
   <section id="Tentang-kami">
+   <div style=" padding: 100px 0; text-align: center; color: white;">
     <h1>
-      Abadikan Momen Indah <br> Anda bersama Studio<br>Fotografi Sejahtera 📸
+      Abadikan Momen Indah Anda bersama Studio<br>Fotografi Sejahtera 📸
     </h1>
-    <p style="text-align: center">
-      Kami siap membantu Anda menangkap setiap momen berharga dalam hidup. Dengan <br>
-      pengalaman dan keahlian, kami menjamin hasil yang memuaskan. <br><br>
-      <button class="btn-dark"><a href="user/GaleriUser.php">Lihat</a></button>
-      <button class="btn-light"> <a href="user/PaketFoto.php">Paket</a></button>
+    <p style="text-align: center; color: black;">
+      <br>Kami siap membantu Anda menangkap setiap momen berharga dalam hidup.<br> 
+      Dengan pengalaman dan keahlian, kami menjamin hasil yang memuaskan. <br><br>
     </p><br>
+    <p style="text-align: center;">
+      <a href="user/GaleriUser.php" class="btn second">Lihat</a>
+      <a href="user/PaketFoto.php" class="btn second">Paket</a>
+    </p>
+  </div>
   </section>
-  <!-- gambar1 -->
-  <div class="image-container">
-    <img src="img/sylusss.jpg" alt="">
-  </div><br><br><br><br><br><br>
   <!-- Paket Foto -->
   <section id="Paket-foto">
-    <h2>Paket Foto Menarik untuk Setiap<br>Momen Spesial Anda Bersama Kami</h2>
+    <h2>Paket Foto Menarik untuk Setiap Momen</h2>
     <div class="grid-3">
       <div class="card">
-        <i class='bx  bx-camera'  ></i>  
-        <h3>Pilih Paket yang Sesuai dengan Kebutuhan dan Anggaran Anda</h3>
-        <p>Kami menawarkan berbagai paket foto untuk setiap momen berharga Anda.</p>
-        <a>Lihat &rsaquo;</a>      
+        <i class='bx bx-camera'></i>
+        <h3>Paket Prewedding</h3>
+        <p>Momen romantis sebelum hari bahagia.</p>
+        <a href="user/PaketFoto.php">Lihat &rsaquo;</a>
       </div>
       <div class="card">
-        <i class='bx  bx-camera'  ></i>  
-        <h3>Paket Prewedding: Ciptakan Kenangan Indah Sebelum Hari Bahagia Anda</h3>
-        <p>Paket ini dirancang untuk menangkap momen-momen romantis Anda.</p>
-        <a>Lihat &rsaquo;</a>
+        <i class='bx bx-camera'></i>
+        <h3>Paket Wisuda</h3>
+        <p>Abadikan kelulusan Anda dengan foto yang memukau.</p>
+        <a href="user/PaketFoto.php">Lihat &rsaquo;</a>
       </div>
       <div class="card">
-        <i class='bx  bx-camera'  ></i>  
-        <h3>Paket Wisuda: Rayakan Keberhasilan Anda dengan Foto yang Memukau</h3>
-        <p>Abadikan momen kelulusan Anda dengan foto yang penuh makna.</p>
-        <a>Lihat &rsaquo;</a>
+        <i class='bx bx-camera'></i>
+        <h3>Paket Ulang Tahun</h3>
+        <p>Rayakan ulang tahun dengan foto kenangan.</p>
+        <a href="user/PaketFoto.php">Lihat &rsaquo;</a>
       </div>
     </div>
   </section>
   <!-- Galeri -->
   <section id="Galeri">
     <h2>Galeri Foto</h2>
-    <p style="text-align: center">Lihat hasil pemotretan terbaik kami di sini</p>
+    <p style="text-align: center">Lihat hasil pemotretan terbaik kami di sini</p><br>
     <div class="gallery">
       <div class="gallery img">
-        <img src="img/Sylus2.jpg" alt="">
+        <img src="img/Sylus2.jpg">
       </div>
       <div class="gallery img">
-        <img src="img/Sylus1.jpg" alt="">
+        <img src="img/Sylus1.jpg">
       </div>
       <div class="gallery img">
-        <img src="img/Sylus3.jpg" alt="">
+        <img src="img/Sylus3.jpg">
       </div>
     </div>
   </section>
@@ -495,7 +475,7 @@
 
     <!-- Kontak info -->
       <div class="kontak-info">
-        <h2 style="text-align: left">Hubungi Kami</h2>
+        <h2 style="text-align: ">Hubungi Kami</h2>
         <p>Kami siap membantu Anda dengan pertanyaan apapun.</p>
 
         <div class="info-item">
@@ -585,7 +565,6 @@
             <span>Konsultan, PT. Maju</span>
           </div>
         </div>
-        <a href="#" class="read-more">Baca studi kasus →</a>
       </div>
 
       <div class="testimonial-card">
@@ -597,7 +576,6 @@
             <span>Manager, CV. Kreatif</span>
           </div>
         </div>
-        <a href="#" class="read-more">Baca studi kasus →</a>
       </div>
 
       <div class="testimonial-card">
@@ -609,7 +587,6 @@
             <span>Direktur, Studio XYZ</span>
           </div>
         </div>
-        <a href="#" class="read-more">Baca studi kasus →</a>
       </div>
 
       <div class="testimonial-card">
@@ -621,7 +598,6 @@
             <span>CEO, Startup ABC</span>
           </div>
         </div>
-        <a href="#" class="read-more">Baca studi kasus →</a>
       </div>
 
       <div class="testimonial-card">
@@ -633,7 +609,6 @@
             <span>CEO, Startup ABC</span>
           </div>
         </div>
-        <a href="#" class="read-more">Baca studi kasus →</a>
       </div>
 
       <div class="testimonial-card">
@@ -645,16 +620,7 @@
             <span>CEO, Startup ABC</span>
           </div>
         </div>
-        <a href="#" class="read-more">Baca studi kasus →</a>
       </div>
-    </div>
-
-    <!-- Dots -->
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
     </div>
 
     <!-- Navigation buttons -->

@@ -57,7 +57,7 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
         .detail-image { width: 100%; height: 450px; object-fit: cover; }
         .detail-content { padding: 40px; }
         .detail-title { font-size: 2.5em; color: #333; margin-bottom: 20px; }
-        .detail-price { font-size: 2em; color: #007bff; font-weight: bold; margin-bottom: 30px; }
+        .detail-price { font-size: 2em; color: #473026ff; font-weight: bold; margin-bottom: 30px; }
         .detail-features {
             background: #f8f9fa;
             padding: 25px;
@@ -76,7 +76,7 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
         }
         .detail-actions { display: flex; justify-content: center; }
         .btn-pesan {
-            background: #007bff;
+            background: #473026ff;
             color: white;
             padding: 15px 50px;
             border: none;
@@ -88,7 +88,7 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
             text-decoration: none;
             display: block;
         }
-        .btn-pesan:hover { background: #0056b3; }
+        .btn-pesan:hover { background: #473026ff; }
         .paket-card {
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -104,19 +104,13 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
 
     <!-- NAVIGASI -->
     <div class="navbar">
-        <div class="logo">Galleria</div>
+        <div class="logo">Logo</div>
         <div class="menu">
             <a href="..\index.php">Tentang Kami</a>
             <a href="GaleriUser.php">Galeri</a>
-            <div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown()">Kontak Kami</button>
-                <div id="dropdownMenu" class="dropdown-content">
-                    <a href="#WhatsApp">WhatsApp</a>
-                    <a href="#Email">Email</a>
-                </div>
-            </div>
+            <a href="..\index.php\#Kontak-kami">Kontak Kami</a>
         </div>
-        <a href="../index.php" class="btn">Log out</a>
+        <a href="../index.php" class="btn">Kembali</a>
     </div>
 
     <!-- HEADER -->
@@ -176,7 +170,7 @@ $result = $koneksi->query("SELECT * FROM paket_foto ORDER BY id DESC LIMIT 6");
     <!-- FOOTER -->
     <div class="footer">
         <div class="footer-top">
-            <div class="footer-logo">Galleria</div>
+            <div class="footer-logo">Logo</div>
             <div class="footer-socials">
                 <img src="images/facebook1.png">
                 <img src="images/instagram.png">
