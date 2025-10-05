@@ -84,7 +84,7 @@
                 </p>
             </div>
 
-            <form class="form-lp" action="#" method="POST">
+            <form class="form-lp" action="backend/proses_form.php" method="POST">
                 <div class="grid-2-lp">
                     <div>
                         <label class="label-lp">Nama Depan</label>
